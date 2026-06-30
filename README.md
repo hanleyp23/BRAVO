@@ -1,6 +1,6 @@
-# TIC TAC TOE
+# COLOR RUSH
 
-> Play Your Favorite Childhood Game with AI!
+>Quick thinking Game!
 
 ## Authorship
 ### Hanley Prestridge
