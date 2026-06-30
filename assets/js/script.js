@@ -23,7 +23,7 @@ $("#startBtn").click(function () {
   newRound();
 });
 
-// Create a new random round
+//new round
 function newRound() {
   let colors = Object.keys(colorWords);
 
