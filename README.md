@@ -29,6 +29,8 @@
 
 ###Issue game ideas link:https://github.com/hanleyp23/BRAVO/issues/1#issue-4786979803
 
+###Sprint99 Milestones Link: https://github.com/hanleyp23/BRAVO/milestones
+
 
 ##Technologies Used
 -HTML
