@@ -22,14 +22,21 @@ GitHub Profile: https://github.com/hanleyp23
 # About the App
 
 ##Links
-###Wiki: 
-###Wireframe: 
-###Repo link:
-###GitHub Pages app link:
-###Issue/game ideas link:
+###Wireframe:https://github.com/hanleyp23/BRAVO/wiki/WireFrame
+###Repo link:https://github.com/hanleyp23/BRAVO
+###GitHub Pages app link: https://hanleyp23.github.io/BRAVO/
+###Issue game ideas link:https://github.com/hanleyp23/BRAVO/issues/1#issue-4786979803
+
+##Technologies Used
+-HTML
+-VS Code online
+-CSS
+-Bootstrap 5
+-JavaScript
+-GitHub Pages
 
 ## Directory Structure
-
+'''text
 BRAVO/
 ├── index.html
 ├── pages/
@@ -41,13 +48,5 @@ BRAVO/
 │   └── js/
 │       └── script.js
 └── README.md
-
-##Technologies Used
--HTML
--VS Code online
--CSS
--Bootstrap 5
--JavaScript
--GitHub Pages
 
 
