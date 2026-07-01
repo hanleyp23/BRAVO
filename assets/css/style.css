@@ -42,3 +42,25 @@ h3 {
     background-color: gray;
     color: white;
 }
+
+body {
+    background-color: lightblue;
+}
+
+.card {
+    background-color: white;
+}
+
+#wordButtons button {
+    margin: 5px;
+}
+
+#difficulty {
+    width: 200px;
+    margin: auto;
+    margin-bottom: 15px;
+}
+
+#startFullBtn {
+    margin-bottom: 15px;
+}
