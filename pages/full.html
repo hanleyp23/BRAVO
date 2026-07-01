@@ -1,30 +1,109 @@
-<h1>Full Game</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Game</title>
 
-<h3 id="playerGreeting"></h3>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
 
-<label for="difficulty" class="form-label">Choose Difficulty</label>
+<body>
 
-<select id="difficulty" class="form-select mb-3">
-    <option value="10">Easy - 10 seconds</option>
-    <option value="5">Hard - 5 seconds</option>
-</select>
+<main class="container text-center mt-5">
 
-<button id="startFullBtn" class="btn btn-success mb-3">
-    Start Full Game
-</button>
+    <div class="card shadow p-4 mx-auto" style="max-width:600px;">
 
-<h4 id="timerText">Time: 0</h4>
+        <h1>🏆 Full Game</h1>
 
-<h2 id="targetColor"></h2>
+        <h3 id="playerGreeting"></h3>
 
-<div id="wordButtons"></div>
+        <div class="mb-3">
 
-<h4 id="scoreText">Score: 0</h4>
+            <label class="form-label">Difficulty</label>
 
-<h4 id="highScoreText">High Score: 0</h4>
+            <select id="difficulty" class="form-select">
+                <option value="10">Easy (10 Seconds)</option>
+                <option value="5">Hard (5 Seconds)</option>
+            </select>
 
-<p id="message"></p>
+        </div>
 
-<button id="restartBtn" class="btn btn-danger">
-    Restart
-</button>
+        <button id="startFullBtn" class="btn btn-success mb-3">
+            Start Game
+        </button>
+
+        <hr>
+
+        <h4 id="timerText">Time: 0</h4>
+
+        <h2 id="targetColor"></h2>
+
+        <div id="wordButtons" class="mb-3"></div>
+
+        <h4 id="scoreText">Score: 0</h4>
+
+        <h4 id="highScoreText">High Score: 0</h4>
+
+        <p id="message"></p>
+
+        <button id="restartBtn" class="btn btn-danger">
+            Restart
+        </button>
+
+        <hr>
+
+        <div>
+
+            <a href="../index.html" class="btn btn-secondary">
+                Home
+            </a>
+
+            <a href="concept.html" class="btn btn-info">
+                Concept Game
+            </a>
+
+        </div>
+
+    </div>
+
+</main>
+
+<div class="modal fade" id="highScoreModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    🎉 New High Score!
+                </h5>
+            </div>
+
+            <div class="modal-body">
+
+                <p id="modalScoreText"></p>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-dismiss="modal">
+                    Awesome!
+                </button>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/script.js"></script>
+
+</body>
+</html>

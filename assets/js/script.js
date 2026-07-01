@@ -1,7 +1,7 @@
 let score = 0;
 let currentColor = "";
-let timeLeft = 0;
 let timer;
+let timeLeft = 0;
 
 let colorWords = {
     Green: ["Tree", "Grass", "Leaf", "Frog"],
@@ -13,13 +13,8 @@ let colorWords = {
 let name = localStorage.getItem("playerName") || "Guest";
 $("#playerGreeting").text("Hi " + name + "!");
 
-$("#startFullBtn").click(function () {
-    startGame();
-});
-
-$("#restartBtn").click(function () {
-    startGame();
-});
+$("#restartBtn").click(startGame);
+$("#startFullBtn").click(startGame);
 
 if (!$("#startFullBtn").length) {
     startGame();
@@ -44,7 +39,7 @@ function startGame() {
             if (timeLeft <= 0) {
                 clearInterval(timer);
                 $("#wordButtons").hide();
-                $("#message").text("Game Over! Final Score: " + score);
+                $("#message").text("Game Over!");
             }
         }, 1000);
     }
@@ -61,10 +56,7 @@ function newRound() {
 
     for (let color in colorWords) {
         let word = colorWords[color][0];
-
-        $("#wordButtons").append(
-            "<button class='btn btn-primary m-2 wordBtn'>" + word + "</button>"
-        );
+        $("#wordButtons").append("<button class='btn btn-primary m-2 wordBtn'>" + word + "</button>");
     }
 }
 
@@ -82,14 +74,20 @@ $(document).on("click", ".wordBtn", function () {
     $("#scoreText").text("Score: " + score);
 
     if ($("#highScoreText").length) {
-        let high = localStorage.getItem("highScore") || 0;
+        let highScore = localStorage.getItem("highScore") || 0;
 
-        if (score > high) {
-            high = score;
-            localStorage.setItem("highScore", high);
+        if (score > highScore) {
+            localStorage.setItem("highScore", score);
+            $("#highScoreText").text("High Score: " + score);
+
+            if ($("#highScoreModal").length) {
+                $("#modalScoreText").text("New high score: " + score);
+                let modal = new bootstrap.Modal(document.getElementById("highScoreModal"));
+                modal.show();
+            }
+        } else {
+            $("#highScoreText").text("High Score: " + highScore);
         }
-
-        $("#highScoreText").text("High Score: " + high);
     }
 
     if (timeLeft > 0 || !$("#difficulty").length) {
