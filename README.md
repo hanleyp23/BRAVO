@@ -16,7 +16,7 @@
 
 
 ## Narrative
-###Color Rush is a fast-paced color matching game where players test their speed and accuracy by matching words to the correct color while trying to ###earn the highest score.
+###Color Rush is a fast-paced color matching game where players test their speed and accuracy by matching words to the correct color while trying to earn the highest score.
 
 # About the App
 
