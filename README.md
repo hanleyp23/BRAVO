@@ -14,7 +14,6 @@
 - **I want** to enter my name and play a color matching game,
 - **So that** I can have fun. 
 
-GitHub Profile: https://github.com/hanleyp23
 
 ## Narrative
 ###Color Rush is a fast-paced color matching game where players test their speed and accuracy by matching words to the correct color while trying to ###earn the highest score.
@@ -23,9 +22,14 @@ GitHub Profile: https://github.com/hanleyp23
 
 ##Links
 ###Wireframe:https://github.com/hanleyp23/BRAVO/wiki/WireFrame
+
 ###Repo link:https://github.com/hanleyp23/BRAVO
+
 ###GitHub Pages app link: https://hanleyp23.github.io/BRAVO/
+
 ###Issue game ideas link:https://github.com/hanleyp23/BRAVO/issues/1#issue-4786979803
+
+###GitHub Profile: https://github.com/hanleyp23
 
 ##Technologies Used
 -HTML
