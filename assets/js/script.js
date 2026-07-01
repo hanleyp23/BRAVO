@@ -8,11 +8,10 @@ let colorWords = {
   Yellow: ["Banana", "Lemon", "Sun", "Corn", "School Bus"]
 };
 
-// Start button 
+// Start button
 $("#startBtn").click(function () {
   let name = $("#playerName").val();
 
-// Names guest 
   if (name == "") {
     name = "Guest";
   }
@@ -23,8 +22,45 @@ $("#startBtn").click(function () {
   newRound();
 });
 
-//new round
+// New round
 function newRound() {
   let colors = Object.keys(colorWords);
 
-  let randomNumber = Math.floor(Math.random()
+  let randomNumber = Math.floor(Math.random() * colors.length);
+
+  currentColor = colors[randomNumber];
+
+  let words = colorWords[currentColor];
+
+  let wordNumber = Math.floor(Math.random() * words.length);
+
+  let randomWord = words[wordNumber];
+
+  $("#colorQuestion").text("Click the color that matches: " + randomWord);
+
+  $("#answerButtons").empty();
+
+  colors.forEach(function (color) {
+    $("#answerButtons").append(
+      `<button class="btn btn-outline-dark m-2 colorBtn" data-color="${color}">
+        ${color}
+      </button>`
+    );
+  });
+}
+
+// Answer button 
+$(document).on("click", ".colorBtn", function () {
+  let guessedColor = $(this).data("color");
+
+  if (guessedColor == currentColor) {
+    score++;
+    $("#result").text("Correct!");
+  } else {
+    $("#result").text("Wrong! The answer was " + currentColor);
+  }
+
+  $("#score").text("Score: " + score);
+
+  newRound();
+});
