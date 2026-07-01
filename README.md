@@ -4,7 +4,7 @@
 
 ## Authorship
 ### Hanley Prestridge
-### Link to GitHub Profile: 
+### Link to GitHub Profile: https://github.com/hanleyp23
 ### Date:6/27/26
 ### Version:Final
 
@@ -29,7 +29,6 @@
 
 ###Issue game ideas link:https://github.com/hanleyp23/BRAVO/issues/1#issue-4786979803
 
-###GitHub Profile: https://github.com/hanleyp23
 
 ##Technologies Used
 -HTML
