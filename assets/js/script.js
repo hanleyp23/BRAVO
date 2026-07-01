@@ -13,8 +13,13 @@ let colorWords = {
 let name = localStorage.getItem("playerName") || "Guest";
 $("#playerGreeting").text("Hi " + name + "!");
 
-$("#restartBtn").click(startGame);
-$("#startFullBtn").click(startGame);
+$("#restartBtn").click(function () {
+    startGame();
+});
+
+$("#startFullBtn").click(function () {
+    startGame();
+});
 
 if (!$("#startFullBtn").length) {
     startGame();
