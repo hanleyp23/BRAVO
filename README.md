@@ -10,7 +10,7 @@
 
 ## User Story
 
-- **As a** player looking for a quick game,
+- **As a** player looking for a cool game,
 - **I want** to enter my name and play a color matching game,
 - **So that** I can have fun. 
 
