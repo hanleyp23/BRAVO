@@ -1,5 +1,3 @@
-/*its not the best i ran out of time.*/
-
 body {
     background-color: lightblue;
     font-family: Arial, sans-serif;
@@ -13,9 +11,8 @@ h1 {
     color: black;
 }
 
-#playerGreeting {
+h3 {
     color: blue;
-    font-weight: bold;
 }
 
 #targetColor {
@@ -25,13 +22,11 @@ h1 {
 
 #scoreText {
     font-size: 24px;
-    color: black;
 }
 
 #message {
     font-size: 20px;
     color: red;
-    font-weight: bold;
 }
 
 #wordButtons button {
@@ -41,6 +36,10 @@ h1 {
 
 #restartBtn {
     margin-top: 15px;
+}
+
+#gameChoice {
+    display: none;
 }
 
 .btn:hover {
