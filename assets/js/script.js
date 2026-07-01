@@ -1,5 +1,7 @@
 let score = 0;
 let currentColor = "";
+let timeLeft = 0;
+let timer;
 
 let colorWords = {
     Green: ["Tree", "Grass", "Leaf", "Frog"],
@@ -8,19 +10,45 @@ let colorWords = {
     Yellow: ["Banana", "Lemon", "Sun", "Corn"]
 };
 
-$(document).ready(function () {
-    let name = localStorage.getItem("playerName") || "Guest";
+let name = localStorage.getItem("playerName") || "Guest";
+$("#playerGreeting").text("Hi " + name + "!");
 
-    $("#playerGreeting").text("Hi " + name + "!");
-    $("#restartBtn").click(restartGame);
-
-    restartGame();
+$("#startFullBtn").click(function () {
+    startGame();
 });
 
-function restartGame() {
+$("#restartBtn").click(function () {
+    startGame();
+});
+
+if (!$("#startFullBtn").length) {
+    startGame();
+}
+
+function startGame() {
     score = 0;
     $("#scoreText").text("Score: 0");
     $("#message").text("");
+    $("#wordButtons").show();
+
+    clearInterval(timer);
+
+    if ($("#difficulty").length) {
+        timeLeft = Number($("#difficulty").val());
+        $("#timerText").text("Time: " + timeLeft);
+
+        timer = setInterval(function () {
+            timeLeft--;
+            $("#timerText").text("Time: " + timeLeft);
+
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                $("#wordButtons").hide();
+                $("#message").text("Game Over! Final Score: " + score);
+            }
+        }, 1000);
+    }
+
     newRound();
 }
 
@@ -29,8 +57,7 @@ function newRound() {
     currentColor = colors[Math.floor(Math.random() * colors.length)];
 
     $("#targetColor").text("Pick a " + currentColor + " word");
-
-    $("#wordButtons").html("");
+    $("#wordButtons").empty();
 
     for (let color in colorWords) {
         let word = colorWords[color][0];
@@ -45,7 +72,7 @@ $(document).on("click", ".wordBtn", function () {
     let word = $(this).text();
 
     if (colorWords[currentColor].includes(word)) {
-        score = score + 1;
+        score++;
         $("#message").text("Correct!");
     } else {
         score = 0;
@@ -53,5 +80,19 @@ $(document).on("click", ".wordBtn", function () {
     }
 
     $("#scoreText").text("Score: " + score);
-    newRound();
+
+    if ($("#highScoreText").length) {
+        let high = localStorage.getItem("highScore") || 0;
+
+        if (score > high) {
+            high = score;
+            localStorage.setItem("highScore", high);
+        }
+
+        $("#highScoreText").text("High Score: " + high);
+    }
+
+    if (timeLeft > 0 || !$("#difficulty").length) {
+        newRound();
+    }
 });
