@@ -39,6 +39,7 @@
 -Bootstrap 5
 -JavaScript
 -GitHub Pages
+-Bootstrap Icons
 
 ## Directory Structure
 '''text
