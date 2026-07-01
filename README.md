@@ -42,7 +42,7 @@
 -Bootstrap Icons
 
 ## Directory Structure
-'''text
+```text
 BRAVO/
 ├── index.html
 ├── pages/
@@ -54,5 +54,6 @@ BRAVO/
 │   └── js/
 │       └── script.js
 └── README.md
+```
 
 
