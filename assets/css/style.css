@@ -1,3 +1,49 @@
-body{
+/*its not the best i ran out of time.*/
+
+body {
     background-color: lightblue;
+    font-family: Arial, sans-serif;
+}
+
+.card {
+    border-radius: 10px;
+}
+
+h1 {
+    color: black;
+}
+
+#playerGreeting {
+    color: blue;
+    font-weight: bold;
+}
+
+#targetColor {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+#scoreText {
+    font-size: 24px;
+    color: black;
+}
+
+#message {
+    font-size: 20px;
+    color: red;
+    font-weight: bold;
+}
+
+#wordButtons button {
+    width: 150px;
+    margin: 5px;
+}
+
+#restartBtn {
+    margin-top: 15px;
+}
+
+.btn:hover {
+    background-color: gray;
+    color: white;
 }

@@ -2,65 +2,66 @@ let score = 0;
 let currentColor = "";
 
 let colorWords = {
-  Green: ["Tree", "Grass", "Pear", "Leaf", "Frog"],
-  Blue: ["Sky", "Ocean", "Blueberry", "Jeans", "Whale"],
-  Red: ["Apple", "Strawberry", "Rose", "Tomato", "Firetruck"],
-  Yellow: ["Banana", "Lemon", "Sun", "Corn", "School Bus"]
+  Green: ["Tree", "Grass", "Leaf", "Frog"],
+  Blue: ["Sky", "Ocean", "Whale", "Jeans"],
+  Red: ["Apple", "Rose", "Tomato", "Firetruck"],
+  Yellow: ["Banana", "Lemon", "Sun", "Corn"]
 };
 
-// Start button
-$("#startBtn").click(function () {
-  let name = $("#playerName").val();
+$(document).ready(function () {
+  let name = localStorage.getItem("playerName") || "Guest";
 
-  if (name == "") {
-    name = "Guest";
-  }
+  $("#playerGreeting").text("Hi " + name + "!");
+  $("#restartBtn").click(startGame);
 
-  $("#Greeting").text("Hi " + name + "!");
-  $("#gameArea").show();
-
-  newRound();
+  startGame();
 });
 
-// New round
+function startGame() {
+  score = 0;
+  $("#scoreText").text("Score: 0");
+  $("#message").text("");
+  newRound();
+}
+
 function newRound() {
   let colors = Object.keys(colorWords);
+  currentColor = colors[Math.floor(Math.random() * colors.length)];
 
-  let randomNumber = Math.floor(Math.random() * colors.length);
+  $("#targetColor").text(currentColor);
+  $("#targetColor").css("color", currentColor.toLowerCase());
 
-  currentColor = colors[randomNumber];
+  $("#wordButtons").empty();
 
-  let words = colorWords[currentColor];
+  let allWords = [];
 
-  let wordNumber = Math.floor(Math.random() * words.length);
+  for (let color in colorWords) {
+    allWords = allWords.concat(colorWords[color]);
+  }
 
-  let randomWord = words[wordNumber];
+  allWords.sort(function () {
+    return Math.random() - 0.5;
+  });
 
-  $("#colorQuestion").text("Click the color that matches: " + randomWord);
-
-  $("#answerButtons").empty();
-
-  colors.forEach(function (color) {
-    $("#answerButtons").append(
-      `<button class="btn btn-outline-dark m-2 colorBtn" data-color="${color}">
-        ${color}
-      </button>`
+  allWords.slice(0, 6).forEach(function (word) {
+    $("#wordButtons").append(
+      `<button class="btn btn-outline-primary m-2 wordBtn">${word}</button>`
     );
   });
 }
 
-// Answer button 
-$(document).on("click", ".colorBtn", function () {
-  let guessedColor = $(this).data("color");
+$(document).on("click", ".wordBtn", function () {
+  let chosenWord = $(this).text();
 
-  if (guessedColor == currentColor) {
+  if (colorWords[currentColor].includes(chosenWord)) {
     score++;
-    $("#result").text("Correct!");
+    $("#scoreText").text("Score: " + score);
+    $("#message").text("Correct!");
   } else {
-    $("#result").text("Wrong! The answer was " + currentColor);
+    score = 0;
+    $("#scoreText").text("Score: 0");
+    $("#message").text("Wrong! Score reset to 0.");
   }
-
-  $("#score").text("Score: " + score);
 
   newRound();
 });
