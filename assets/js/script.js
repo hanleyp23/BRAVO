@@ -8,65 +8,50 @@ let colorWords = {
     Yellow: ["Banana", "Lemon", "Sun", "Corn"]
 };
 
-let name = localStorage.getItem("playerName") || "Guest";
-$("#playerGreeting").text("Hi " + name + "!");
+$(document).ready(function () {
+    let name = localStorage.getItem("playerName") || "Guest";
 
-$("#restartBtn").click(function () {
-    score = 0;
-    $("#scoreText").text("Score: 0");
-    newRound();
+    $("#playerGreeting").text("Hi " + name + "!");
+    $("#restartBtn").click(restartGame);
+
+    restartGame();
 });
 
-newRound();
+function restartGame() {
+    score = 0;
+    $("#scoreText").text("Score: 0");
+    $("#message").text("");
+    newRound();
+}
 
 function newRound() {
-
     let colors = Object.keys(colorWords);
-
     currentColor = colors[Math.floor(Math.random() * colors.length)];
 
-    $("#targetColor").text(currentColor);
-    $("#targetColor").css("color", currentColor);
+    $("#targetColor").text("Pick a " + currentColor + " word");
 
-    $("#wordButtons").empty();
+    $("#wordButtons").html("");
 
     for (let color in colorWords) {
-
         let word = colorWords[color][0];
 
         $("#wordButtons").append(
             "<button class='btn btn-primary m-2 wordBtn'>" + word + "</button>"
         );
     }
-
 }
 
 $(document).on("click", ".wordBtn", function () {
-
     let word = $(this).text();
 
     if (colorWords[currentColor].includes(word)) {
-        score++;
+        score = score + 1;
         $("#message").text("Correct!");
-    }
-    else {
+    } else {
         score = 0;
         $("#message").text("Wrong! Score reset to 0.");
     }
 
     $("#scoreText").text("Score: " + score);
-
-    if ($("#highScoreText").length) {
-        let high = localStorage.getItem("highScore") || 0;
-
-        if (score > high) {
-            high = score;
-            localStorage.setItem("highScore", high);
-        }
-
-        $("#highScoreText").text("High Score: " + high);
-    }
-
     newRound();
-
 });
