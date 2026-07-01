@@ -9,21 +9,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="bg-light">
+<body>
 
     <main class="container d-flex justify-content-center align-items-center vh-100">
 
-        <div class="card shadow-lg p-4 text-center" style="max-width: 450px; width:100%;">
+        <div class="card shadow-lg p-4 text-center" style="max-width: 450px; width: 100%;">
 
             <h1 class="mb-3">Color Rush</h1>
 
-            <p class="mb-4">
-                Enter your name to begin!
-            </p>
+            <p id="introText" class="mb-4">Enter your name to begin!</p>
 
-            <label for="playerName" class="form-label">
-                Player Name
-            </label>
+            <label id="nameLabel" for="playerName" class="form-label">Player Name</label>
 
             <input
                 type="text"
@@ -35,11 +31,9 @@
                 Start Game
             </button>
 
-            <div id="gameSelection" style="display:none;">
+            <div id="gameSelection" style="display: none;">
 
-                <h4 class="mb-3">
-                    Choose a Game Mode
-                </h4>
+                <h4 class="mb-3">Choose a Game Mode</h4>
 
                 <a href="concept.html" class="btn btn-info w-100 mb-2">
                     Concept Game
@@ -49,7 +43,6 @@
                     Full Game
                 </a>
 
-                
             </div>
 
         </div>
@@ -57,9 +50,8 @@
     </main>
 
     <script>
-        $("#loginBtn").click(function () {
-
-            let name = $("#playerName").val().trim();
+        document.getElementById("loginBtn").addEventListener("click", function () {
+            let name = document.getElementById("playerName").value.trim();
 
             if (name === "") {
                 name = "Guest";
@@ -67,11 +59,12 @@
 
             localStorage.setItem("playerName", name);
 
-            $("#loginBtn").hide();
-            $("#playerName").hide();
-            $("label").hide();
+            document.getElementById("loginBtn").style.display = "none";
+            document.getElementById("playerName").style.display = "none";
+            document.getElementById("nameLabel").style.display = "none";
+            document.getElementById("introText").style.display = "none";
 
-            $("#gameSelection").fadeIn();
+            document.getElementById("gameSelection").style.display = "block";
         });
     </script>
 
